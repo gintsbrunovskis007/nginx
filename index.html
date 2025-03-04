@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NGINX Ubuntu Server By Gints Brunovskis</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-header-container">
+        <div class="main-header">
+          <h1>GINTS NGINX</h1>
+        </div>
+        <div class="icon-container">
+          <h3>programmatūras rīki</h3>
+
+          <div class="icons">
+            <div id="icon" class="icon-1">
+              <img height="100" src="ubuntu.svg" alt="" />
+            </div>
+            <div id="icon" class="icon-2">
+              <img height="100" src="nginx.svg" alt="" />
+            </div>
+            <div id="icon" class="icon-3">
+              <img height="100" src="plane.svg" alt="" />
+            </div>
+            <div id="icon" class="icon-4">
+              <img height="100" src="firewall.png" alt="" />
+            </div>
+            <div id="icon" class="icon-5">
+              <img height="100" src="LXDE.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-select-container">
+        <!-- <div class="button-select">
+          <button id="uzdevums-button">Uzdevuma prasības</button>
+        </div>
+        <div class="button-select">
+          <button id="rezultats-button">Rezultāts</button>
+        </div> -->
+        <div class="button-select">
+          <li data-tab-target="#uzdevums-content" class="acive tab">
+            Uzdevuma prasības
+          </li>
+        </div>
+
+        <div class="button-select">
+          <li data-tab-target="#rezultats-content" class="tab">Rezultāts</li>
+        </div>
+      </div>
+
+      <!-- ============================ -->
+
+      <div class="info-container">
+        <div data-tab-content id="rezultats-content" class="results">
+          <h1>Rezultāts</h1>
+          <p>Izveidots funkcionējošs Ubuntu Server ar:</p>
+          <ul>
+            <li>
+              Konfigurētu SSH piekļuvi.
+              <img height="30" class="checkmark" src="checkmark.svg" alt="" />
+            </li>
+            <li>
+              Instalētu un konfigurētu Cockpit servera pārvaldībai.
+              <img height="30" class="checkmark" src="checkmark.svg" alt="" />
+            </li>
+            <li>
+              Pilnībā funkcionējošu izvēlēto servera veidu (FTP/Web/Mediju).
+              <img height="30" class="checkmark" src="checkmark.svg" alt="" />
+            </li>
+            <li>
+              Drošības iestatījumiem un pamata servera uzturēšanas mehānismiem.
+              <img height="30" class="checkmark" src="checkmark.svg" alt="" />
+            </li>
+          </ul>
+        </div>
+
+        <!-- ========================= -->
+        <div
+          data-tab-content
+          id="uzdevums-content"
+          aria-colspan="active"
+          class="accordion active"
+        >
+          <div class="accordion-item">
+            <button
+              class="accordion-header"
+              onclick="toggleAccordion('install')"
+            >
+              Ubuntu Server instalācija
+              <img width="20" src="down.svg" alt="expand" />
+            </button>
+            <div id="install" class="accordion-content">
+              <ul>
+                <li>
+                  Izvēlies piemērotu Ubuntu Server versiju (vēlams LTS).
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  Veic tīru instalāciju, nodrošinot diska pareizu nodalīšanu.
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button
+              class="accordion-header"
+              onclick="toggleAccordion('maintenance')"
+            >
+              Atjauninājumi un uzturēšana
+              <img width="20" src="down.svg" alt="expand" />
+            </button>
+            <div id="maintenance" class="accordion-content">
+              <ul>
+                <li>
+                  Konfigurē automātiskus drošības atjauninājumus
+                  (unattended-upgrades).
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  Pārbaudi diska vietas izmantojumu un sistēmas veiktspēju.
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <strong>GUI uzstādīšana pēc izvēles</strong> (piem., LXDE,
+                  XFCE, LXQt u.c.).
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <strong>Statiskā IP uzstādīšana</strong> (izmantojot Netplan).
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion('ssh')">
+              SSH piekļuve
+              <img width="20" src="down.svg" alt="expand" />
+            </button>
+            <div id="ssh" class="accordion-content">
+              <ul>
+                <li>
+                  Instalē OpenSSH serveri un nodrošini, ka tas ir konfigurēts
+                  drošai attālinātai piekļuvei.
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  Maini noklusējuma portu un konfigurē ugunsmūri, lai piekļuve
+                  būtu tikai atļautajiem lietotājiem.
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  <strong>Uzstādīt un pārbaudīt attālo pieslēgšanos</strong>
+                  izmantojot Remote Desktop (no Windows ierīces).
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button
+              class="accordion-header"
+              onclick="toggleAccordion('cockpit')"
+            >
+              Servera pārvaldības rīks: Cockpit
+              <img width="20" src="down.svg" alt="expand" />
+            </button>
+            <div id="cockpit" class="accordion-content">
+              <ul>
+                <li>
+                  Instalē un konfigurē Cockpit kā servera pārvaldības rīku.
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  Nodrošini, ka Cockpit ir pieejams tikai lokālā tīkla
+                  administratoriem, izmantojot HTTPS.
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button
+              class="accordion-header"
+              onclick="toggleAccordion('config')"
+            >
+              Izvēlētā servera veida konfigurācija
+              <img width="20" src="down.svg" alt="expand" />
+            </button>
+            <div id="config" class="accordion-content">
+              <p>FTP, Web, Medija utt.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button
+              class="accordion-header"
+              onclick="toggleAccordion('security')"
+            >
+              Drošība
+              <img width="20" src="down.svg" alt="expand" />
+            </button>
+            <div id="security" class="accordion-content">
+              <ul>
+                <li>
+                  Konfigurē ufw ugunsmūri, lai atļautu piekļuvi tikai
+                  nepieciešamajiem portiem (piemēram, 22, 21).
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  Veic pamata aizsardzību pret uzbrukumiem, izmantojot fail2ban
+                  vai līdzīgu rīku.
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button
+              class="accordion-header"
+              onclick="toggleAccordion('testing')"
+            >
+              Testēšana un dokumentācija
+              <img width="20" src="down.svg" alt="expand" />
+            </button>
+            <div id="testing" class="accordion-content">
+              <ul>
+                <li>
+                  Pārbaudi servera darbību: veic piekļuves pārbaudi (piemēram,
+                  pieslēdzies FTP serverim vai tīmekļavietnei).
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+                <li>
+                  Dokumentē servera instalācijas un konfigurācijas soļus, lai
+                  tos varētu atkārtot vai atjaunot.
+                  <img
+                    height="30"
+                    class="checkmark"
+                    src="checkmark.svg"
+                    alt=""
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================ -->
+    </div>
+  </body>
+</html>
